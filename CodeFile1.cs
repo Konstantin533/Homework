@@ -124,7 +124,7 @@ class Program
                 Console.Write("Введите процент от числа: ");
                 num3 = Convert.ToInt32(Console.ReadLine());
                 procent = (num2 / 100) * num3;
-                Console.WriteLine($"Результат процента от числа: {procent}% "); ;
+                Console.WriteLine($"{num3} процентов от числа {num2}, результат: {procent} "); ;
                 Console.WriteLine("Хотите продолжить? да/нет");
                 word = Console.ReadLine();
                 if (word == "да")
