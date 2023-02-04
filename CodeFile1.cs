@@ -8,9 +8,9 @@ class Program
 
     {
 
-        int number, num, num1;
-        double num2,num3,del,procent;
-        string word;
+        
+        double del,procent;
+        
 
         Console.WriteLine("\t\t\t\t\tВас привествует калькулятор!");
         
@@ -19,7 +19,7 @@ class Program
         Console.WriteLine("\n1-Вычитание\n2-Сложение\n3-Умножение\n4-Деление\n5-Процент от числа\n6-Квадратный корень");
         Console.WriteLine();
         Console.Write("Введите номер арифметической операции: ");
-        number = Convert.ToInt32(Console.ReadLine());
+       int number = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
         switch (number)
         {
@@ -55,13 +55,13 @@ class Program
 
             case 1:
                 Console.Write("Введите первое число: ");
-                num= Convert.ToInt32(Console.ReadLine());
+               int num= Convert.ToInt32(Console.ReadLine());
                 Console.Write("Введите второе число: ");
-                num1 = Convert.ToInt32(Console.ReadLine());
+               int num1 = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Результат вычитания: " + (num - num1));
                 Console.WriteLine("Хотите продолжить? да/нет");
-                word=Console.ReadLine();
-                if(word=="да")
+              string  word=Console.ReadLine();
+                if(word.Equals("да"))
                 {
                     goto case 0;
                 }
@@ -77,7 +77,7 @@ class Program
                 Console.WriteLine("Результат сложения: " + (num + num1));
                 Console.WriteLine("Хотите продолжить? да/нет");
                 word = Console.ReadLine();
-                if (word == "да")
+                if (word.Equals("да"))
                 {
                     goto case 0;
                 }
@@ -93,7 +93,7 @@ class Program
                 Console.WriteLine("Результат умножения: " + (num * num1));
                 Console.WriteLine("Хотите продолжить? да/нет");
                 word = Console.ReadLine();
-                if (word == "да")
+                if (word.Equals("да"))
                 {
                     goto case 0;
                 }
@@ -103,14 +103,14 @@ class Program
                 }
             case 4:
                 Console.Write("Введите первое число: ");
-                num2 = Convert.ToInt32(Console.ReadLine());
+               double num2 = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Введите второе число: ");
-                num3 = Convert.ToInt32(Console.ReadLine());
-                del =num2 / num3;
+               double num3 = Convert.ToInt32(Console.ReadLine());
+                del = num2 / num3;
                 Console.WriteLine("Результат деления: " + del);
                 Console.WriteLine("Хотите продолжить? да/нет");
                 word = Console.ReadLine();
-                if (word == "да")
+                if (word.Equals("да"))
                 {
                     goto case 0;
                 }
@@ -127,7 +127,7 @@ class Program
                 Console.WriteLine($"{num3} процентов от числа {num2}, результат: {procent} "); ;
                 Console.WriteLine("Хотите продолжить? да/нет");
                 word = Console.ReadLine();
-                if (word == "да")
+                if (word.Equals("да"))
                 {
                     goto case 0;
                 }
@@ -141,7 +141,7 @@ class Program
                 Console.WriteLine("Результат квадратного корня: " + Math.Sqrt(num2));
                 Console.WriteLine("Хотите продолжить? да/нет");
                 word = Console.ReadLine();
-                if (word == "да")
+                if (word.Equals("да"))
                 {
                     goto case 0;
                 }
