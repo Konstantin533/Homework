@@ -1,5 +1,8 @@
 ﻿using System;
-
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Xml.Schema;
 
 class Program
 {
@@ -9,214 +12,90 @@ class Program
     {
 
 
-        //Задание 1.
-        for (int i = 1; i <= 99; i++)
+        //Задание 5. String
+        Console.Write("Введите текст: ");
+        string myText = Console.ReadLine();
+
+        string duplicatText;
+
+        for (int i = 0; i < myText.Length; i++)
         {
-            if (i % 2 == 1)
+
+            duplicatText = string.Concat(myText[i], myText[i]);
+            Console.Write(duplicatText);
+
+        }
+        Console.WriteLine();
+
+        //Задание 2.
+        string word = "Желтый красный зеленый лук поле чтотооченьбольшое чтотосуперпупербольшоеочень шар";
+        Console.WriteLine("Наш массив:\n" + word);
+        int index = 0, indexMin = 0;
+        string[] clubs = word.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        int max = clubs[index].Length;
+        int min = clubs[indexMin].Length;
+
+
+        for (int i = 0; i < clubs.Length; i++)
+        {
+
+            max = clubs[index].Length;
+            min = clubs[indexMin].Length;
+
+            if (max <= clubs[i].Length)
             {
-                Console.WriteLine(i);
+
+
+                max = clubs[i].Length;
+                index = i;
+
+
+            }
+            if (min >= clubs[i].Length)
+            {
+                min = clubs[i].Length;
+                indexMin = i;
             }
 
         }
-        // Задание 2.
-        for (int i = 5; i > 0; i--)
-        {
-            Console.WriteLine(i);
-
-        }
-
-        //Задание 3.
-        Console.Write("Введите число: ");
-        int num = Convert.ToInt32(Console.ReadLine());
-
-
-        for (int i = 1; i <= num; i++)
-        {
-            Console.WriteLine(i);
-
-        }
+        Console.Write("Максимальное количество букв в слове: " + clubs[index]);
+        Console.WriteLine();
+        Console.Write("Минимальное количество букв в слове: " + clubs[indexMin]);
+        Console.WriteLine();
         //Задание 4.
+        string words = "дед привет доход мяч довод магазин";
+        Console.WriteLine(words);
 
-        int num = 98, numOne = 0;
-
-
-        while (numOne < num)
-        {
-            numOne = numOne + 7;
-
-
-            Console.Write(numOne + " ");
-        }
-        Console.WriteLine();
-        //Задание 5.
-        int num = 5;
-        for (int i = 0; i < 10; i++)
-        {
-
-            num = num - 5;
-
-            Console.Write(num + ", ");
-        }
-        Console.WriteLine();
-        //Задание 6.
-        double num = 0;
-        for (int i = 10; i <= 20; i++)
-        {
-
-
-            num = Math.Pow(i, 2);
-
-            Console.Write(num + ", ");
-        }
-        Console.WriteLine();
-
-        //Массивы Задание 0.
-
-        int[] intArr = new int[5] { 5, 2, 6, 7, 100 };
-
-        Console.Write("Введите число: ");
+        Console.Write("Введите номер слова которое хотите проверить: ");
         int num = Convert.ToInt32(Console.ReadLine());
 
-
-        if (Array.IndexOf(intArr, num) == -1)
+        if (num == 0 || num > 6)
         {
-            Console.WriteLine("Данное число не входит в массив");
+            Console.WriteLine("Вы ввели неверное значение");
+
+        }
+        num = num - 1;
+
+        string[] clubs = words.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        string[] clubsTwo = words.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        StringBuilder dude = new StringBuilder(clubs[num]);
+        StringBuilder dudeTwo = new StringBuilder(clubsTwo[num]);
+        for (int i = 0; i < dudeTwo.Length; i++)
+        {
+            dudeTwo[i] = dude[dude.Length - i - 1];
+            clubsTwo[num] = dudeTwo.ToString();
+
+        }
+
+
+        if (clubsTwo[num].Equals(clubs[num]))
+        {
+            Console.WriteLine("Это слово является палиндромом: " + clubs[num]);
+
         }
         else
         {
-            Console.WriteLine("Данное число  входит в массив");
-        }
-
-        //Задание 1.
-
-        int[] source = { 5, 4, 7, 2, 9, 7, 10 };
-        Console.Write("Введите число для его удаления из массива: ");
-        int numberReadLine = Convert.ToInt32(Console.ReadLine());
-        int futureArrayLength = 0;
-        Console.WriteLine("Текущий массив:");
-
-        for (int i = 0; i < source.Length; i++)
-        {
-            Console.Write(source[i] + " ");
-
-        }
-        foreach (int item in source)
-        {
-            if (item != numberReadLine)
-            {
-                futureArrayLength++;
-            }
-
-        }
-
-        int[] resultArray = new int[futureArrayLength];
-        int iterationForAppend = 0;
-
-        for (int i = 0; i < source.Length; i++)
-        {
-            if (source[i] != numberReadLine)
-            {
-                if (iterationForAppend != resultArray.Length)
-                {
-                    resultArray[iterationForAppend] = source[i];
-                    iterationForAppend++;
-
-                }
-
-            }
-
-        }
-        Console.WriteLine("\nНовый массив:");
-        for (int i = 0; i < resultArray.Length; i++)
-        {
-            Console.Write(resultArray[i] + " ");
-        }
-        Console.WriteLine();
-        //Задание 2.
-
-        int min, max, indexMax = 0, indexMin = 0, sum = 0;
-
-        Console.Write("Введите количество элементов в массиве: ");
-        int nums = Convert.ToInt32(Console.ReadLine());
-        int[] myArr = new int[nums];
-        min = myArr[indexMin];
-        max = myArr[indexMax];
-        Random random = new Random();
-
-        for (int i = 0; i < myArr.Length; i++)
-        {
-            myArr[i] = random.Next(1, 20);
-            sum = sum + myArr[i];
-
-            max = myArr[indexMax];
-            min = myArr[indexMin];
-            Console.WriteLine(myArr[i]);
-
-            if (myArr[i] > max)
-            {
-
-                max = myArr[i];
-
-                indexMax = i;
-
-
-
-
-            }
-            if (myArr[i] < min)
-            {
-
-                min = myArr[i];
-
-                indexMin = i;
-
-
-
-
-            }
-
-        }
-        Console.WriteLine();
-
-        Console.WriteLine("Максимальное значение в массиве: " + max);
-        Console.WriteLine("Минимальное значение в массиве: " + min);
-        Console.WriteLine("Среднее значение массива: " + (double)sum / nums);
-
-
-        //Задание 3.
-        int sum = 0, sum1 = 0;
-        double avaregeValue, avaregeValue1;
-        int[] myArr = new int[5] { 1, 2, 3, 70, 5 };
-        int[] myArr1 = new int[5] { 1, 2, 4, 70, 5 };
-        Console.WriteLine("Первый массив");
-        for (int i = 0; i < myArr.Length; i++)
-        {
-            sum = sum + myArr[i];
-            Console.Write(myArr[i] + " ");
-        }
-        Console.WriteLine();
-        Console.WriteLine("Второй массив");
-        for (int j = 0; j < myArr1.Length; j++)
-        {
-            sum1 = sum1 + myArr1[j];
-            Console.Write(myArr1[j] + " ");
-        }
-        Console.WriteLine();
-        avaregeValue = (double)sum / 5;
-        avaregeValue1 = (double)sum1 / 5;
-        Console.WriteLine("Среднее арифметическое первого массива: " + avaregeValue);
-        Console.WriteLine("Среднее арифметическое второго массива: " + avaregeValue1);
-        if (avaregeValue > avaregeValue1)
-        {
-            Console.WriteLine("Среднее арифметическое первого массива больше второго");
-        }
-        if (avaregeValue < avaregeValue1)
-        {
-            Console.WriteLine("Среднее арифметическое второго массива  больше первого");
-        }
-        if (avaregeValue == avaregeValue1)
-        {
-            Console.WriteLine("Среднее арифметическое массивов равны");
+            Console.WriteLine("НЕ является палиндромом!!");
         }
 
 
