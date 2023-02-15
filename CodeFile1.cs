@@ -18,9 +18,9 @@ class Program
         phoneOne.ReceiveCall("Сергей");
         phoneTwo.ReceiveCall("Артём");
         phoneThree.ReceiveCall("Илья");
-        Console.WriteLine(phoneOne.GetNumber());
+        phoneOne.GetNumber();
         phoneTwo.GetNumber();
-        Console.WriteLine(phoneThree.GetNumber(79919231212));
+        phoneThree.GetNumber(79919231212);
         
     }
 }
