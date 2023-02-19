@@ -11,45 +11,74 @@ namespace Project1
         public long number;
         public string model;
         public int weight;
-        
+        public string name;
 
-
-        public Phone(long numberInit, string modelInit, int weghtInit)
+        public Phone()
         {
-             number = numberInit;
-             model = modelInit;
-             weight = weghtInit;
-
         }
         public Phone(long numberInit, string modelInit)
         {
             number = numberInit;
             model = modelInit;
-           
-
         }
-        public Phone()
-        {
-          
-
-        }
-
-        public void ReceiveCall(string name)
-        {
-            Console.WriteLine($"Звонит {name}");
-        }
-        public string  GetNumber()
+        public Phone(long numberInit, string modelInit, int weghtInit) : this (numberInit, modelInit)
         {
             
-           string result = string.Format("{0:+# (###) ###-##-##}", number);
-           return result;
-        }
-        public string GetNumber(long number)
-        {
+            number = numberInit;
+            model = modelInit;
+            weight = weghtInit;
 
+        }
+        
+        
+
+        public void ReceiveCall(string nameInit)
+        {
+            name = nameInit;
+            Console.WriteLine($"Звонит {name}");
+            
+        }
+       
+        public string GetNumber()
+        {
+            
+            string result = string.Format("{0:+# (###) ###-##-##}", number);
+            return result;
+        }
+        public string GetNumber(long numberInit)
+        {
+            number=numberInit;
             string result = string.Format("{0:+# (###) ###-##-##}", number);
             return result;
         }
 
+       
+       
+        public void ReceiveCall()
+        {
+            
+            string result = string.Format("{0:+# (###) ###-##-##}", number);
+            Console.WriteLine($"Вам звонит {name} , номер телефона {result}");
+        }
+        public void ReceiveCall(string nameInit, long number)
+        {
+            name = nameInit;
+            string result = string.Format("{0:+# (###) ###-##-##}", number);
+            Console.WriteLine($"Вам звонит {name}, номер телефона {result}");
+        }
+        public void SendMessage(params long [] array ) 
+        {
+
+            
+            for (int i = 0; i < array.Length; i++)
+            {
+                
+                string result = string.Format("{0:+# (###) ###-##-##}", array[i]);
+                Console.WriteLine($"Телефон на который придёт сообщение: {result}");
+            }
+
+
+            Console.WriteLine();
+        }
     }
 }

@@ -40,7 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeFile1.cs" />
+    <Compile Include="CreditCard.cs" />
+    <Compile Include="Dentist.cs" />
+    <Compile Include="Patient.cs" />
     <Compile Include="Phone.cs" />
+    <Compile Include="Surgeon.cs" />
+    <Compile Include="Therapist.cs" />
+    <Compile Include="TreatmentPlan.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
